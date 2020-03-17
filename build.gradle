@@ -1,0 +1,21 @@
+plugins {
+    id 'java'
+}
+
+group 'com.alipay'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    maven { url 'https://maven.aliyun.com/repository/public/' }
+    maven { url 'https://maven.aliyun.com/repository/spring/' }
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'dom4j', name: 'dom4j', version: '1.6.1'
+    compile group: 'com.alibaba', name: 'fastjson', version: '1.2.62'
+}
+[compileJava, compileTestJava, javadoc]*.options*.encoding = 'UTF-8'
