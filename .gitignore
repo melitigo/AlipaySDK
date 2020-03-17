@@ -1,8 +1,9 @@
-gradlew
-gradlew.bat
-.idea/**
-.gradle/**
-build/**
-gradle/**
-
-!build/libs/**
+/gradlew
+/gradlew.bat
+/.idea/**
+/.gradle/**
+/build/classes/**
+/build/docs/**
+/build/tmp/**
+/gradle/**
+/src/main/resources/
