@@ -3,7 +3,7 @@ package sample;
 import com.alipay.global.api.AlipayClient;
 import com.alipay.global.api.DefaultAlipayClient;
 import com.alipay.global.api.exception.AlipayApiException;
-import com.alipay.global.api.request.ForexRefundRequest;
+import com.alipay.global.api.request.AlipayOverseasForexOrderPayRequest;
 
 import java.io.UnsupportedEncodingException;
 import java.text.SimpleDateFormat;
@@ -11,23 +11,25 @@ import java.text.SimpleDateFormat;
 import com.alipay.global.api.response.AlipayResponse;
 import java.util.Date;
 
-public class ForexRefundSample {
+public class AlipayOverseasForexOrderPaySample {
     public static void main(String[] args) throws AlipayApiException, UnsupportedEncodingException {
         AlipayClient alipayClient = new DefaultAlipayClient("https://globalmapi.alipay.com/gateway.do",
-                "2088021017666931",
+                "2088101141338400",
                 "MD5",
                 "your private key in single line",
                 "alipay public key in single line");
-        ForexRefundRequest alipayRequest = new ForexRefundRequest();
+        AlipayOverseasForexOrderPayRequest alipayRequest = new AlipayOverseasForexOrderPayRequest();
 
         
-        alipayRequest.setOutReturnNo("REFUND_" + System.nanoTime());
-        alipayRequest.setOutTradeNo("TRADE_" + System.nanoTime());
-        alipayRequest.setReturnAmount("0.01");
+        alipayRequest.setReturnUrl("https://www.google.com");
+        alipayRequest.setPartnerTransId("TRADE_" + System.nanoTime());
+        alipayRequest.setGoodsTitle("Mika Lines - to Mika's coffee shop");
+        alipayRequest.setSellerId("2088101141338400");
+        alipayRequest.setTotalFee("520.00");
         alipayRequest.setCurrency("USD");
-        alipayRequest.setGmtReturn(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
-        alipayRequest.setReason("买家主动要求退款");
-        alipayRequest.setProductCode("NEW_OVERSEAS_SELLER");
+        alipayRequest.setPricingCurrency("CNY");
+        alipayRequest.setServiceType("100");
+        alipayRequest.setExtParams("{\"VCN_ORG\":\"UATP\"}");
 
         
         AlipayResponse execute = alipayClient.execute(alipayRequest);

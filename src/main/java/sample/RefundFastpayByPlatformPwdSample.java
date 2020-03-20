@@ -3,7 +3,7 @@ package sample;
 import com.alipay.global.api.AlipayClient;
 import com.alipay.global.api.DefaultAlipayClient;
 import com.alipay.global.api.exception.AlipayApiException;
-import com.alipay.global.api.request.ForexRefundRequest;
+import com.alipay.global.api.request.RefundFastpayByPlatformPwdRequest;
 
 import java.io.UnsupportedEncodingException;
 import java.text.SimpleDateFormat;
@@ -11,23 +11,18 @@ import java.text.SimpleDateFormat;
 import com.alipay.global.api.response.AlipayResponse;
 import java.util.Date;
 
-public class ForexRefundSample {
+public class RefundFastpayByPlatformPwdSample {
     public static void main(String[] args) throws AlipayApiException, UnsupportedEncodingException {
         AlipayClient alipayClient = new DefaultAlipayClient("https://globalmapi.alipay.com/gateway.do",
-                "2088021017666931",
+                "2088102135220161",
                 "MD5",
                 "your private key in single line",
                 "alipay public key in single line");
-        ForexRefundRequest alipayRequest = new ForexRefundRequest();
+        RefundFastpayByPlatformPwdRequest alipayRequest = new RefundFastpayByPlatformPwdRequest();
 
         
-        alipayRequest.setOutReturnNo("REFUND_" + System.nanoTime());
-        alipayRequest.setOutTradeNo("TRADE_" + System.nanoTime());
-        alipayRequest.setReturnAmount("0.01");
-        alipayRequest.setCurrency("USD");
-        alipayRequest.setGmtReturn(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
-        alipayRequest.setReason("买家主动要求退款");
-        alipayRequest.setProductCode("NEW_OVERSEAS_SELLER");
+        alipayRequest.setRefundDate(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
+        alipayRequest.setBatchNo(System.nanoTime() + "REFUND");
 
         
         AlipayResponse execute = alipayClient.execute(alipayRequest);

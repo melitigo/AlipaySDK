@@ -9,8 +9,8 @@ import java.util.Map;
 public class CreateForexTradeWapHkRequest extends AlipayRequest {
 
     /**
-     * 字段描述：服务名
-     * Description: service name
+     * 字段描述：接口名称
+     * Description: Name of the interface
      * Example: create_forex_trade_wap
      * create_forex_trade_wap
      */
@@ -28,7 +28,7 @@ public class CreateForexTradeWapHkRequest extends AlipayRequest {
 
     /**
      * 字段描述：字符集，推荐UTF-8
-     * Description: WAP接口不支持GBK
+     * Description: Charset of this request, it's recommended to use UTF-8
      * Example: UTF-8
      * UTF-8 utf-8
      */
@@ -99,8 +99,8 @@ public class CreateForexTradeWapHkRequest extends AlipayRequest {
 
 
     /**
-     * 字段描述：外部交易号，自定义设置，不能包含除中文、英文、数字以外的字符，且需要保证在商户端不重复。
-     * Description: 
+     * 字段描述：商户端订单ID
+     * Description: ID of the trade at merchant side
      * Example: TRADE_#auto#
      * 
      */
@@ -180,7 +180,7 @@ public class CreateForexTradeWapHkRequest extends AlipayRequest {
 
 
     /**
-     * 字段描述：
+     * 字段描述：产品代码
      * Description: 
      * Example: NEW_WAP_OVERSEAS_SELLER
      * NEW_WAP_OVERSEAS_SELLER

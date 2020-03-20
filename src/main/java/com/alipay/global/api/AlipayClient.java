@@ -4,6 +4,8 @@ import com.alipay.global.api.exception.AlipayApiException;
 import com.alipay.global.api.request.AlipayRequest;
 import com.alipay.global.api.response.AlipayResponse;
 
+import java.util.Map;
+
 public interface AlipayClient {
 
     AlipayResponse execute(AlipayRequest alipayRequest) throws AlipayApiException;
@@ -15,4 +17,6 @@ public interface AlipayClient {
     String orderInfo(AlipayRequest alipayRequest) throws AlipayApiException;
 
     String form(AlipayRequest alipayRequest) throws AlipayApiException;
+
+    boolean verify(Map<String, String> alipayNotification) throws AlipayApiException;
 }

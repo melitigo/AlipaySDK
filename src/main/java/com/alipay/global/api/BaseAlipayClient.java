@@ -12,6 +12,7 @@ import com.alipay.global.api.tools.XMLParser;
 import org.dom4j.DocumentException;
 
 import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.nio.charset.Charset;
 import java.util.Comparator;
@@ -204,4 +205,26 @@ public abstract class BaseAlipayClient implements AlipayClient {
     }
 
     public abstract HttpRpcResult sendRequest(String requestUrl, String httpMethod, Map<String, String> header, String reqBody) throws AlipayApiException;
+
+    public boolean verify(Map<String, String> alipayNotification) throws AlipayApiException {
+//        alipayNotification.keySet().forEach(a1 -> {
+//            try {
+//                alipayNotification.put(a1, URLDecoder.decode(a1, inputCharset));
+//            } catch (Exception ignored) {
+//            }
+//        });
+
+        String preSignString = alipayNotification.entrySet().stream().filter(a1 ->
+                (a1.getKey() != null && a1.getKey().length() > 0) &&
+                        (a1.getValue() != null && a1.getValue().length() > 0) &&
+                        ((!a1.getKey().equals("sign")) && (!a1.getKey().equals("sign_type"))))
+                .sorted(Map.Entry.comparingByKey())
+                .map(a1 -> String.format("%s=%s", a1.getKey(), a1.getValue())).collect(Collectors.joining("&"));
+        String sign = alipayNotification.get("sign");
+        if (sign == null || sign.length() == 0) {
+            throw new AlipayApiException("Signature verify failed", "Signature verify failed");
+        }
+        sign = sign.replaceAll(" ", "+");
+        return SignatureTool.verify(preSignString, signType, inputCharset, sign, alipayPublicKey);
+    }
 }

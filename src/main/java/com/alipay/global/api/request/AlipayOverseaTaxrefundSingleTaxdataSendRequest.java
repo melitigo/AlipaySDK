@@ -9,8 +9,8 @@ import java.util.Map;
 public class AlipayOverseaTaxrefundSingleTaxdataSendRequest extends AlipayRequest {
 
     /**
-     * 字段描述：服务名
-     * Description: service name
+     * 字段描述：接口名称
+     * Description: Name of the interface
      * Example: alipay.oversea.taxrefund.single.taxdata.send
      * alipay.oversea.taxrefund.single.taxdata.send
      */
@@ -29,7 +29,7 @@ public class AlipayOverseaTaxrefundSingleTaxdataSendRequest extends AlipayReques
 
     /**
      * 字段描述：字符集，推荐UTF-8
-     * Description: 
+     * Description: Charset of this request, it's recommended to use UTF-8
      * Example: 
      * 
      */
@@ -76,7 +76,7 @@ public class AlipayOverseaTaxrefundSingleTaxdataSendRequest extends AlipayReques
     /**
      * 字段描述：
      * Description: 退税机构的业务唯一流水号。英文字符数字构成且长度要求不能小于3且不能大于64。
-     * Example: 
+     * Example: ORDER_#auto#
      * 
      */
     private String out_order_no;

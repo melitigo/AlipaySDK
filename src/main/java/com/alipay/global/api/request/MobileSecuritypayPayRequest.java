@@ -9,8 +9,8 @@ import java.util.Map;
 public class MobileSecuritypayPayRequest extends AlipayRequest {
 
     /**
-     * 字段描述：服务名
-     * Description: service name
+     * 字段描述：接口名称
+     * Description: Name of the interface
      * Example: mobile.securitypay.pay
      * mobile.securitypay.pay
      */
@@ -28,7 +28,7 @@ public class MobileSecuritypayPayRequest extends AlipayRequest {
 
     /**
      * 字段描述：字符集，推荐UTF-8
-     * Description: 
+     * Description: Charset of this request, it's recommended to use UTF-8
      * Example: UTF-8
      * UTF-8 GBK gbk utf-8
      */
@@ -36,8 +36,8 @@ public class MobileSecuritypayPayRequest extends AlipayRequest {
 
 
     /**
-     * 字段描述：签名算法，该接口仅支持RSA
-     * Description: Signature algorithm, this interface only supports RSA
+     * 字段描述：签名算法
+     * Description: Signature algorithm
      * Example: RSA
      * RSA
      */
@@ -81,8 +81,8 @@ public class MobileSecuritypayPayRequest extends AlipayRequest {
 
 
     /**
-     * 字段描述：外部交易号，自定义设置，不能包含除中文、英文、数字以外的字符，且需要保证在商户端不重复。
-     * Description: 
+     * 字段描述：商户端订单ID
+     * Description: ID of the trade at merchant side
      * Example: TRADE_#auto#
      * 
      */
@@ -216,7 +216,7 @@ public class MobileSecuritypayPayRequest extends AlipayRequest {
 
 
     /**
-     * 字段描述：
+     * 字段描述：产品代码
      * Description: 
      * Example: NEW_WAP_OVERSEAS_SELLER
      * NEW_WAP_OVERSEAS_SELLER

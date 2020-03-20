@@ -9,8 +9,8 @@ import java.util.Map;
 public class ForexRefundHkRequest extends AlipayRequest {
 
     /**
-     * 字段描述：服务名
-     * Description: service name
+     * 字段描述：接口名称
+     * Description: Name of the interface
      * Example: forex_refund
      * forex_refund
      */
@@ -28,7 +28,7 @@ public class ForexRefundHkRequest extends AlipayRequest {
 
     /**
      * 字段描述：字符集，推荐UTF-8
-     * Description: 
+     * Description: Charset of this request, it's recommended to use UTF-8
      * Example: UTF-8
      * UTF-8 GBK gbk utf-8
      */
@@ -64,8 +64,8 @@ public class ForexRefundHkRequest extends AlipayRequest {
 
 
     /**
-     * 字段描述：外部退款请求号，自定义设置
-     * Description: 
+     * 字段描述：商户端退款请求ID
+     * Description: ID of the refund request at merchant side
      * Example: REFUND_#auto#
      * 
      */
@@ -73,8 +73,8 @@ public class ForexRefundHkRequest extends AlipayRequest {
 
 
     /**
-     * 字段描述：外部交易号，自定义设置
-     * Description: 
+     * 字段描述：商户端订单ID
+     * Description: ID of the trade at merchant side
      * Example: TRADE_#auto#
      * 
      */
@@ -82,7 +82,7 @@ public class ForexRefundHkRequest extends AlipayRequest {
 
 
     /**
-     * 字段描述：外币退款金额。 取值范围是0.01 – 1000000.00，小数点后最多2位。不得超过交易金额。
+     * 字段描述：外币退款金额
      * Description: 
      * Example: 0.01
      * 
@@ -100,8 +100,8 @@ public class ForexRefundHkRequest extends AlipayRequest {
 
 
     /**
-     * 字段描述：退款时间
-     * Description: Refund transaction time, with a format of yyyy-MM-dd HH:mm:ss. Use GMT+8.
+     * 字段描述：退款时间，格式：yyyy-MM-dd HH:mm:ss
+     * Description: Refund transaction time, with a format of yyyy-MM-dd HH:mm:ss.
      * Example: #now{yyyy-MM-dd HH:mm:ss}#
      * 
      */
@@ -118,11 +118,10 @@ public class ForexRefundHkRequest extends AlipayRequest {
 
 
     /**
-     * 字段描述：退款请求处理方式
+     * 字段描述：退款请求处理方式，Y表示同步退款，N表示异步退款。不填默认异步退款。
      * Description: Refund requests are processed synchronously or asynchronously.
 Value: Y or N.
-Default value: N. Asynchronous processing. When the first refund fails, Alipay will do a round-trip refund process.
-If the value is Y, there is only asynchronous return, which means that the refund will be synchronized, and there is no round-trip process.
+Default value: N. Asynchronous processing.
      * Example: 
      * Y N
      */

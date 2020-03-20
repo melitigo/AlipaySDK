@@ -9,8 +9,8 @@ import java.util.Map;
 public class AlipayOverseasSecmerchantOfflineMaintainRequest extends AlipayRequest {
 
     /**
-     * 字段描述：服务名
-     * Description: service name
+     * 字段描述：接口名称
+     * Description: Name of the interface
      * Example: alipay.overseas.secmerchant.offline.maintain
      * alipay.overseas.secmerchant.offline.maintain
      */
@@ -28,7 +28,7 @@ public class AlipayOverseasSecmerchantOfflineMaintainRequest extends AlipayReque
 
     /**
      * 字段描述：字符集，推荐UTF-8
-     * Description: 123123213312312313123123
+     * Description: Charset of this request, it's recommended to use UTF-8
      * Example: UTF-8
      * UTF-8 GBK gbk utf-8
      */

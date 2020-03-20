@@ -6,21 +6,21 @@ import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
 
-public class AlipayDutCustomerAgreementQueryRequest extends AlipayRequest {
+public class RefundFastpayByPlatformPwdRequest extends AlipayRequest {
 
     /**
      * 字段描述：接口名称
      * Description: Name of the interface
-     * Example: alipay.dut.customer.agreement.query
-     * alipay.dut.customer.agreement.query
+     * Example: refund_fastpay_by_platform_pwd
+     * refund_fastpay_by_platform_pwd
      */
-    private String service = "alipay.dut.customer.agreement.query";
+    private String service = "refund_fastpay_by_platform_pwd";
 
 
     /**
      * 字段描述：支付宝ID，2088开头的16位数字
      * Description: Merchant ID in Alipay system, a 16 digits number starting with 2088
-     * Example: 
+     * Example: 2088102135220161
      * 
      */
     private String partner;
@@ -54,12 +54,12 @@ public class AlipayDutCustomerAgreementQueryRequest extends AlipayRequest {
 
 
     /**
-     * 字段描述：产品代码
-     * Description: 
-     * Example: GENERAL_WITHHOLDING_P
-     * GENERAL_WITHHOLDING_P
+     * 字段描述：异步通知地址
+     * Description: 异步通知地址
+     * Example: 
+     * 
      */
-    private String product_code;
+    private String notify_url;
 
 
     /**
@@ -68,7 +68,7 @@ public class AlipayDutCustomerAgreementQueryRequest extends AlipayRequest {
      * Example: 
      * 
      */
-    private String alipay_user_id;
+    private String seller_email;
 
 
     /**
@@ -77,7 +77,25 @@ public class AlipayDutCustomerAgreementQueryRequest extends AlipayRequest {
      * Example: 
      * 
      */
-    private String alipay_logon_id;
+    private String seller_user_id;
+
+
+    /**
+     * 字段描述：
+     * Description: 
+     * Example: #now#
+     * 
+     */
+    private String refund_date;
+
+
+    /**
+     * 字段描述：
+     * Description: 
+     * Example: #auto#REFUND
+     * 
+     */
+    private String batch_no;
 
 
     /**
@@ -86,16 +104,7 @@ public class AlipayDutCustomerAgreementQueryRequest extends AlipayRequest {
      * Example: 
      * 
      */
-    private String third_party_type;
-
-
-    /**
-     * 字段描述：
-     * Description: 
-     * Example: 
-     * INDUSTRY MEDICAL
-     */
-    private String scene;
+    private String batch_num;
 
 
     /**
@@ -104,16 +113,7 @@ public class AlipayDutCustomerAgreementQueryRequest extends AlipayRequest {
      * Example: 
      * 
      */
-    private String app_id;
-
-
-    /**
-     * 字段描述：
-     * Description: 
-     * Example: 
-     * 
-     */
-    private String external_sign_no;
+    private String detail_data;
 
     public void setService(String service) {
         if (service != null) {
@@ -140,39 +140,39 @@ public class AlipayDutCustomerAgreementQueryRequest extends AlipayRequest {
             this.sign = sign.trim();
         }
     }
-    public void setProductCode(String product_code) {
-        if (product_code != null) {
-            this.product_code = product_code.trim();
+    public void setNotifyUrl(String notify_url) {
+        if (notify_url != null) {
+            this.notify_url = notify_url.trim();
         }
     }
-    public void setAlipayUserId(String alipay_user_id) {
-        if (alipay_user_id != null) {
-            this.alipay_user_id = alipay_user_id.trim();
+    public void setSellerEmail(String seller_email) {
+        if (seller_email != null) {
+            this.seller_email = seller_email.trim();
         }
     }
-    public void setAlipayLogonId(String alipay_logon_id) {
-        if (alipay_logon_id != null) {
-            this.alipay_logon_id = alipay_logon_id.trim();
+    public void setSellerUserId(String seller_user_id) {
+        if (seller_user_id != null) {
+            this.seller_user_id = seller_user_id.trim();
         }
     }
-    public void setThirdPartyType(String third_party_type) {
-        if (third_party_type != null) {
-            this.third_party_type = third_party_type.trim();
+    public void setRefundDate(String refund_date) {
+        if (refund_date != null) {
+            this.refund_date = refund_date.trim();
         }
     }
-    public void setScene(String scene) {
-        if (scene != null) {
-            this.scene = scene.trim();
+    public void setBatchNo(String batch_no) {
+        if (batch_no != null) {
+            this.batch_no = batch_no.trim();
         }
     }
-    public void setId(String app_id) {
-        if (app_id != null) {
-            this.app_id = app_id.trim();
+    public void setBatchNum(String batch_num) {
+        if (batch_num != null) {
+            this.batch_num = batch_num.trim();
         }
     }
-    public void setExternalSignNo(String external_sign_no) {
-        if (external_sign_no != null) {
-            this.external_sign_no = external_sign_no.trim();
+    public void setDetailData(String detail_data) {
+        if (detail_data != null) {
+            this.detail_data = detail_data.trim();
         }
     }
     public String getService() {
@@ -195,32 +195,32 @@ public class AlipayDutCustomerAgreementQueryRequest extends AlipayRequest {
         return sign;
     }
 
-    public String getProductCode() {
-        return product_code;
+    public String getNotifyUrl() {
+        return notify_url;
     }
 
-    public String getAlipayUserId() {
-        return alipay_user_id;
+    public String getSellerEmail() {
+        return seller_email;
     }
 
-    public String getAlipayLogonId() {
-        return alipay_logon_id;
+    public String getSellerUserId() {
+        return seller_user_id;
     }
 
-    public String getThirdPartyType() {
-        return third_party_type;
+    public String getRefundDate() {
+        return refund_date;
     }
 
-    public String getScene() {
-        return scene;
+    public String getBatchNo() {
+        return batch_no;
     }
 
-    public String getId() {
-        return app_id;
+    public String getBatchNum() {
+        return batch_num;
     }
 
-    public String getExternalSignNo() {
-        return external_sign_no;
+    public String getDetailData() {
+        return detail_data;
     }
 
 
@@ -233,26 +233,29 @@ public class AlipayDutCustomerAgreementQueryRequest extends AlipayRequest {
         if (_input_charset != null && !_input_charset.equals("") && !_input_charset.equals("null")) {
             para.put("_input_charset", _input_charset);
         }
-        if (alipay_logon_id != null && !alipay_logon_id.equals("") && !alipay_logon_id.equals("null")) {
-            para.put("alipay_logon_id", alipay_logon_id);
+        if (batch_no != null && !batch_no.equals("") && !batch_no.equals("null")) {
+            para.put("batch_no", batch_no);
         }
-        if (alipay_user_id != null && !alipay_user_id.equals("") && !alipay_user_id.equals("null")) {
-            para.put("alipay_user_id", alipay_user_id);
+        if (batch_num != null && !batch_num.equals("") && !batch_num.equals("null")) {
+            para.put("batch_num", batch_num);
         }
-        if (app_id != null && !app_id.equals("") && !app_id.equals("null")) {
-            para.put("app_id", app_id);
+        if (detail_data != null && !detail_data.equals("") && !detail_data.equals("null")) {
+            para.put("detail_data", detail_data);
         }
-        if (external_sign_no != null && !external_sign_no.equals("") && !external_sign_no.equals("null")) {
-            para.put("external_sign_no", external_sign_no);
+        if (notify_url != null && !notify_url.equals("") && !notify_url.equals("null")) {
+            para.put("notify_url", notify_url);
         }
         if (partner != null && !partner.equals("") && !partner.equals("null")) {
             para.put("partner", partner);
         }
-        if (product_code != null && !product_code.equals("") && !product_code.equals("null")) {
-            para.put("product_code", product_code);
+        if (refund_date != null && !refund_date.equals("") && !refund_date.equals("null")) {
+            para.put("refund_date", refund_date);
         }
-        if (scene != null && !scene.equals("") && !scene.equals("null")) {
-            para.put("scene", scene);
+        if (seller_email != null && !seller_email.equals("") && !seller_email.equals("null")) {
+            para.put("seller_email", seller_email);
+        }
+        if (seller_user_id != null && !seller_user_id.equals("") && !seller_user_id.equals("null")) {
+            para.put("seller_user_id", seller_user_id);
         }
         if (service != null && !service.equals("") && !service.equals("null")) {
             para.put("service", service);
@@ -262,9 +265,6 @@ public class AlipayDutCustomerAgreementQueryRequest extends AlipayRequest {
         }
         if (sign_type != null && !sign_type.equals("") && !sign_type.equals("null")) {
             para.put("sign_type", sign_type);
-        }
-        if (third_party_type != null && !third_party_type.equals("") && !third_party_type.equals("null")) {
-            para.put("third_party_type", third_party_type);
         }
 
         return para;

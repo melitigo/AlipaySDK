@@ -9,8 +9,8 @@ import java.util.Map;
 public class ForexRefundRequest extends AlipayRequest {
 
     /**
-     * 字段描述：服务名
-     * Description: service name
+     * 字段描述：接口名称
+     * Description: Name of the interface
      * Example: forex_refund
      * forex_refund
      */
@@ -28,7 +28,7 @@ public class ForexRefundRequest extends AlipayRequest {
 
     /**
      * 字段描述：字符集，推荐UTF-8
-     * Description: 
+     * Description: Charset of this request, it's recommended to use UTF-8
      * Example: UTF-8
      * UTF-8 GBK gbk utf-8
      */
@@ -63,8 +63,8 @@ public class ForexRefundRequest extends AlipayRequest {
 
 
     /**
-     * 字段描述：外部退款请求号，自定义设置，不能包含除中文、英文、数字以外的字符，且需要保证在商户端不重复。
-     * Description: 
+     * 字段描述：商户端退款请求ID
+     * Description: ID of the refund request at merchant side
      * Example: REFUND_#auto#
      * 
      */
@@ -72,8 +72,8 @@ public class ForexRefundRequest extends AlipayRequest {
 
 
     /**
-     * 字段描述：外部交易号，自定义设置，不能包含除中文、英文、数字以外的字符，且需要保证在商户端不重复。
-     * Description: 
+     * 字段描述：商户端订单ID
+     * Description: ID of the trade at merchant side
      * Example: TRADE_#auto#
      * 
      */
@@ -110,7 +110,7 @@ public class ForexRefundRequest extends AlipayRequest {
     /**
      * 字段描述：退款时间，格式为yyyy-MM-dd HH：mm：ss。 使用北京时间。
      * Description: Refund transaction time, with a format of yyyy-MM-dd HH:mm:ss. Use GMT+8.
-     * Example: 2020-01-14 15:45:57
+     * Example: #now{yyyy-MM-dd HH:mm:ss}#
      * 
      */
     private String gmt_return;
@@ -126,7 +126,7 @@ public class ForexRefundRequest extends AlipayRequest {
 
 
     /**
-     * 字段描述：
+     * 字段描述：产品代码
      * Description: 
      * Example: NEW_OVERSEAS_SELLER
      * NEW_OVERSEAS_SELLER

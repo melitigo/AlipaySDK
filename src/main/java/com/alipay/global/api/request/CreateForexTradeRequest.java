@@ -9,8 +9,8 @@ import java.util.Map;
 public class CreateForexTradeRequest extends AlipayRequest {
 
     /**
-     * 字段描述：服务名
-     * Description: service name
+     * 字段描述：接口名称
+     * Description: Name of the interface
      * Example: create_forex_trade
      * create_forex_trade
      */
@@ -28,7 +28,7 @@ public class CreateForexTradeRequest extends AlipayRequest {
 
     /**
      * 字段描述：字符集，推荐UTF-8
-     * Description: 
+     * Description: Charset of this request, it's recommended to use UTF-8
      * Example: UTF-8
      * UTF-8 GBK gbk utf-8
      */
@@ -56,7 +56,7 @@ public class CreateForexTradeRequest extends AlipayRequest {
     /**
      * 字段描述：异步通知地址
      * Description: 异步通知地址
-     * Example: #now#
+     * Example: 
      * 
      */
     private String notify_url;
@@ -90,8 +90,8 @@ public class CreateForexTradeRequest extends AlipayRequest {
 
 
     /**
-     * 字段描述：外部交易号，自定义设置，不能包含除中文、英文、数字以外的字符，且需要保证在商户端不重复。
-     * Description: 
+     * 字段描述：商户端订单ID
+     * Description: ID of the trade at merchant side
      * Example: TRADE_#auto#
      * 
      */
@@ -99,7 +99,7 @@ public class CreateForexTradeRequest extends AlipayRequest {
 
 
     /**
-     * 字段描述：商户签约的结算币种。必须大写英文字母。
+     * 字段描述：该笔订单的币种
      * Description: 
      * Example: USD
      * 
@@ -108,7 +108,7 @@ public class CreateForexTradeRequest extends AlipayRequest {
 
 
     /**
-     * 字段描述：
+     * 字段描述：该笔订单的外币计价金额
      * Description: 
      * Example: 0.01
      * 
@@ -117,7 +117,7 @@ public class CreateForexTradeRequest extends AlipayRequest {
 
 
     /**
-     * 字段描述：
+     * 字段描述：该笔订单的人民币计价金额
      * Description: 
      * Example: 
      * 
@@ -126,34 +126,34 @@ public class CreateForexTradeRequest extends AlipayRequest {
 
 
     /**
-     * 字段描述：
-     * Description: 默认12h，其他值需要后台配置过。
-     * Example: 12h
+     * 字段描述：订单超时时间
+     * Description: 
+     * Example: 
      * 5m 10m 15m 30m 1h 2h 3h 5h 10h 12h 1d 3d 7d 15d
      */
     private String timeout_rule;
 
 
     /**
-     * 字段描述：
-     * Description: 与order_valid_time共用。用于表达订单有效时间段。
-     * Example: 
+     * 字段描述：与order_valid_time共用，用于表达订单有效时间段
+     * Description: 
+     * Example: #now{yyyy-MM-dd HH:mm:ss}#
      * 
      */
     private String order_gmt_create;
 
 
     /**
-     * 字段描述：
-     * Description: 与order_gmt_create共用。用于表达订单有效时间段。单位：秒。
-     * Example: 
+     * 字段描述：与order_gmt_create共用，用于表达订单有效时间段
+     * Description: 
+     * Example: 1800
      * 
      */
     private String order_valid_time;
 
 
     /**
-     * 字段描述：
+     * 字段描述：收银台显示的商户名
      * Description: 
      * Example: 
      * 
@@ -162,7 +162,7 @@ public class CreateForexTradeRequest extends AlipayRequest {
 
 
     /**
-     * 字段描述：
+     * 字段描述：二级商户ID
      * Description: 
      * Example: 
      * 
@@ -171,7 +171,7 @@ public class CreateForexTradeRequest extends AlipayRequest {
 
 
     /**
-     * 字段描述：
+     * 字段描述：二级商户名称
      * Description: 
      * Example: 
      * 
@@ -180,7 +180,7 @@ public class CreateForexTradeRequest extends AlipayRequest {
 
 
     /**
-     * 字段描述：
+     * 字段描述：二级商户MCC行业代码
      * Description: 
      * Example: 
      * 
@@ -198,7 +198,7 @@ public class CreateForexTradeRequest extends AlipayRequest {
 
 
     /**
-     * 字段描述：
+     * 字段描述：产品代码
      * Description: 
      * Example: NEW_OVERSEAS_SELLER
      * NEW_OVERSEAS_SELLER

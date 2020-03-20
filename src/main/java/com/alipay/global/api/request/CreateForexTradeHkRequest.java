@@ -9,8 +9,8 @@ import java.util.Map;
 public class CreateForexTradeHkRequest extends AlipayRequest {
 
     /**
-     * 字段描述：服务名
-     * Description: service name
+     * 字段描述：接口名称
+     * Description: Name of the interface
      * Example: create_forex_trade
      * create_forex_trade
      */
@@ -28,7 +28,7 @@ public class CreateForexTradeHkRequest extends AlipayRequest {
 
     /**
      * 字段描述：字符集，推荐UTF-8
-     * Description: 
+     * Description: Charset of this request, it's recommended to use UTF-8
      * Example: UTF-8
      * UTF-8 GBK gbk utf-8
      */
@@ -81,8 +81,8 @@ public class CreateForexTradeHkRequest extends AlipayRequest {
 
 
     /**
-     * 字段描述：外部交易号，自定义设置，不能包含除中文、英文、数字以外的字符，且需要保证在商户端不重复。
-     * Description: 
+     * 字段描述：商户端订单ID
+     * Description: ID of the trade at merchant side
      * Example: TRADE_#auto#
      * 
      */
@@ -110,7 +110,7 @@ public class CreateForexTradeHkRequest extends AlipayRequest {
     /**
      * 字段描述：
      * Description: 与order_valid_time共用。用于表达订单有效时间段。
-     * Example: 
+     * Example: #now{yyyy-MM-dd HH:mm:ss}#
      * 
      */
     private String order_gmt_create;
@@ -119,7 +119,7 @@ public class CreateForexTradeHkRequest extends AlipayRequest {
     /**
      * 字段描述：
      * Description: 与order_gmt_create共用。用于表达订单有效时间段。单位：秒。
-     * Example: 
+     * Example: 3600
      * 
      */
     private String order_valid_time;
@@ -135,7 +135,7 @@ public class CreateForexTradeHkRequest extends AlipayRequest {
 
 
     /**
-     * 字段描述：
+     * 字段描述：产品代码
      * Description: 
      * Example: NEW_WAP_OVERSEAS_SELLER
      * NEW_WAP_OVERSEAS_SELLER
@@ -146,7 +146,7 @@ public class CreateForexTradeHkRequest extends AlipayRequest {
     /**
      * 字段描述：
      * Description: 
-     * Example: 
+     * Example: 4
      * 
      */
     private String qr_pay_mode;
@@ -155,7 +155,7 @@ public class CreateForexTradeHkRequest extends AlipayRequest {
     /**
      * 字段描述：
      * Description: 
-     * Example: 
+     * Example: 200
      * 
      */
     private String qrcode_width;

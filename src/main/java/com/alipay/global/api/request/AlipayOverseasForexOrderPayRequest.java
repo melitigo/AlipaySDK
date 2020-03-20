@@ -6,21 +6,21 @@ import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
 
-public class AlipayAcquireOverseasSpotRefundRequest extends AlipayRequest {
+public class AlipayOverseasForexOrderPayRequest extends AlipayRequest {
 
     /**
      * 字段描述：接口名称
      * Description: Name of the interface
-     * Example: alipay.acquire.overseas.spot.refund
-     * alipay.acquire.overseas.spot.refund
+     * Example: alipay.overseas.forex.order.pay
+     * alipay.overseas.forex.order.pay
      */
-    private String service = "alipay.acquire.overseas.spot.refund";
+    private String service = "alipay.overseas.forex.order.pay";
 
 
     /**
      * 字段描述：支付宝ID，2088开头的16位数字
      * Description: Merchant ID in Alipay system, a 16 digits number starting with 2088
-     * Example: 2088021966388155
+     * Example: 2088101141338400
      * 
      */
     private String partner;
@@ -38,7 +38,7 @@ public class AlipayAcquireOverseasSpotRefundRequest extends AlipayRequest {
     /**
      * 字段描述：签名算法
      * Description: Signature algorithm
-     * Example: MD5
+     * Example: RSA
      * RSA RSA2 MD5
      */
     private String sign_type;
@@ -54,18 +54,17 @@ public class AlipayAcquireOverseasSpotRefundRequest extends AlipayRequest {
 
 
     /**
-     * 字段描述：异步通知地址，同步退款不发异步通知。
-若后台配置了异步通知地址，则发后台配置地址，不发请求中地址。
-     * Description: 异步通知地址
-     * Example: 
+     * 字段描述：同步跳转地址
+     * Description: 
+     * Example: https://www.google.com
      * 
      */
-    private String notify_url;
+    private String return_url;
 
 
     /**
-     * 字段描述：外部交易号
-     * Description: Merchant transaction number
+     * 字段描述：商户端订单ID
+     * Description: ID of the trade at merchant side
      * Example: TRADE_#auto#
      * 
      */
@@ -75,10 +74,10 @@ public class AlipayAcquireOverseasSpotRefundRequest extends AlipayRequest {
     /**
      * 字段描述：
      * Description: 
-     * Example: 
+     * Example: Mika Lines - to Mika's coffee shop
      * 
      */
-    private String alipay_trans_id;
+    private String goods_title;
 
 
     /**
@@ -87,20 +86,29 @@ public class AlipayAcquireOverseasSpotRefundRequest extends AlipayRequest {
      * Example: 
      * 
      */
-    private String partner_refund_id;
+    private String goods_description;
 
 
     /**
      * 字段描述：
      * Description: 
-     * Example: 
+     * Example: 2088101141338400
      * 
      */
-    private String refund_amount;
+    private String seller_id;
 
 
     /**
-     * 字段描述：商户签约的结算币种。必须大写英文字母。退款时请保持和交易时传的一致。
+     * 字段描述：
+     * Description: 
+     * Example: 520.00
+     * 
+     */
+    private String total_fee;
+
+
+    /**
+     * 字段描述：
      * Description: 
      * Example: USD
      * 
@@ -109,29 +117,30 @@ public class AlipayAcquireOverseasSpotRefundRequest extends AlipayRequest {
 
 
     /**
-     * 字段描述：退款理由。
-     * Description: Reason for the refund.
-     * Example: 买家主动要求退款
-     * 
+     * 字段描述：
+     * Description: 
+     * Example: CNY
+     * CNY
      */
-    private String refund_reason;
+    private String pricing_currency;
 
 
     /**
-     * 字段描述：退款请求同步或异步处理。
-取值：Y或N。
-默认值：N，异步处理，当首次退款失败时，支付宝会做轮训退款处理。
-且当面付隔日异步退款仅在23:00-5:00（北京时间）执行处理。
-如果该值为Y，则仅有同步返回，表示同步退款，不会有轮训退款处理。
-     * Description: Refund requests are processed synchronously or asynchronously.
-Value: Y or N.
-Default value: N. Asynchronous processing. When the first refund fails, Alipay will do a round-trip refund process.
-For in-store payment, if the refund and transaction time are not the same day, refunds will be processed only at 23: 00-5: 00 (Beijing time).
-If the value is Y, there is only asynchronous return, which means that the refund will be synchronized, and there is no round-trip process.
-     * Example: 
-     * Y N
+     * 字段描述：
+     * Description: 
+     * Example: 100
+     * 100
      */
-    private String is_sync;
+    private String service_type;
+
+
+    /**
+     * 字段描述：
+     * Description: 
+     * Example: {"VCN_ORG":"UATP"}
+     * 
+     */
+    private String ext_params;
 
     public void setService(String service) {
         if (service != null) {
@@ -158,9 +167,9 @@ If the value is Y, there is only asynchronous return, which means that the refun
             this.sign = sign.trim();
         }
     }
-    public void setNotifyUrl(String notify_url) {
-        if (notify_url != null) {
-            this.notify_url = notify_url.trim();
+    public void setReturnUrl(String return_url) {
+        if (return_url != null) {
+            this.return_url = return_url.trim();
         }
     }
     public void setPartnerTransId(String partner_trans_id) {
@@ -168,19 +177,24 @@ If the value is Y, there is only asynchronous return, which means that the refun
             this.partner_trans_id = partner_trans_id.trim();
         }
     }
-    public void setAlipayTransId(String alipay_trans_id) {
-        if (alipay_trans_id != null) {
-            this.alipay_trans_id = alipay_trans_id.trim();
+    public void setGoodsTitle(String goods_title) {
+        if (goods_title != null) {
+            this.goods_title = goods_title.trim();
         }
     }
-    public void setPartnerRefundId(String partner_refund_id) {
-        if (partner_refund_id != null) {
-            this.partner_refund_id = partner_refund_id.trim();
+    public void setGoodsDescription(String goods_description) {
+        if (goods_description != null) {
+            this.goods_description = goods_description.trim();
         }
     }
-    public void setRefundAmount(String refund_amount) {
-        if (refund_amount != null) {
-            this.refund_amount = refund_amount.trim();
+    public void setSellerId(String seller_id) {
+        if (seller_id != null) {
+            this.seller_id = seller_id.trim();
+        }
+    }
+    public void setTotalFee(String total_fee) {
+        if (total_fee != null) {
+            this.total_fee = total_fee.trim();
         }
     }
     public void setCurrency(String currency) {
@@ -188,14 +202,19 @@ If the value is Y, there is only asynchronous return, which means that the refun
             this.currency = currency.trim();
         }
     }
-    public void setRefundReason(String refund_reason) {
-        if (refund_reason != null) {
-            this.refund_reason = refund_reason.trim();
+    public void setPricingCurrency(String pricing_currency) {
+        if (pricing_currency != null) {
+            this.pricing_currency = pricing_currency.trim();
         }
     }
-    public void setIsSync(String is_sync) {
-        if (is_sync != null) {
-            this.is_sync = is_sync.trim();
+    public void setServiceType(String service_type) {
+        if (service_type != null) {
+            this.service_type = service_type.trim();
+        }
+    }
+    public void setExtParams(String ext_params) {
+        if (ext_params != null) {
+            this.ext_params = ext_params.trim();
         }
     }
     public String getService() {
@@ -218,36 +237,44 @@ If the value is Y, there is only asynchronous return, which means that the refun
         return sign;
     }
 
-    public String getNotifyUrl() {
-        return notify_url;
+    public String getReturnUrl() {
+        return return_url;
     }
 
     public String getPartnerTransId() {
         return partner_trans_id;
     }
 
-    public String getAlipayTransId() {
-        return alipay_trans_id;
+    public String getGoodsTitle() {
+        return goods_title;
     }
 
-    public String getPartnerRefundId() {
-        return partner_refund_id;
+    public String getGoodsDescription() {
+        return goods_description;
     }
 
-    public String getRefundAmount() {
-        return refund_amount;
+    public String getSellerId() {
+        return seller_id;
+    }
+
+    public String getTotalFee() {
+        return total_fee;
     }
 
     public String getCurrency() {
         return currency;
     }
 
-    public String getRefundReason() {
-        return refund_reason;
+    public String getPricingCurrency() {
+        return pricing_currency;
     }
 
-    public String getIsSync() {
-        return is_sync;
+    public String getServiceType() {
+        return service_type;
+    }
+
+    public String getExtParams() {
+        return ext_params;
     }
 
 
@@ -260,41 +287,47 @@ If the value is Y, there is only asynchronous return, which means that the refun
         if (_input_charset != null && !_input_charset.equals("") && !_input_charset.equals("null")) {
             para.put("_input_charset", _input_charset);
         }
-        if (alipay_trans_id != null && !alipay_trans_id.equals("") && !alipay_trans_id.equals("null")) {
-            para.put("alipay_trans_id", alipay_trans_id);
-        }
         if (currency != null && !currency.equals("") && !currency.equals("null")) {
             para.put("currency", currency);
         }
-        if (is_sync != null && !is_sync.equals("") && !is_sync.equals("null")) {
-            para.put("is_sync", is_sync);
+        if (ext_params != null && !ext_params.equals("") && !ext_params.equals("null")) {
+            para.put("ext_params", ext_params);
         }
-        if (notify_url != null && !notify_url.equals("") && !notify_url.equals("null")) {
-            para.put("notify_url", notify_url);
+        if (goods_description != null && !goods_description.equals("") && !goods_description.equals("null")) {
+            para.put("goods_description", goods_description);
+        }
+        if (goods_title != null && !goods_title.equals("") && !goods_title.equals("null")) {
+            para.put("goods_title", goods_title);
         }
         if (partner != null && !partner.equals("") && !partner.equals("null")) {
             para.put("partner", partner);
         }
-        if (partner_refund_id != null && !partner_refund_id.equals("") && !partner_refund_id.equals("null")) {
-            para.put("partner_refund_id", partner_refund_id);
-        }
         if (partner_trans_id != null && !partner_trans_id.equals("") && !partner_trans_id.equals("null")) {
             para.put("partner_trans_id", partner_trans_id);
         }
-        if (refund_amount != null && !refund_amount.equals("") && !refund_amount.equals("null")) {
-            para.put("refund_amount", refund_amount);
+        if (pricing_currency != null && !pricing_currency.equals("") && !pricing_currency.equals("null")) {
+            para.put("pricing_currency", pricing_currency);
         }
-        if (refund_reason != null && !refund_reason.equals("") && !refund_reason.equals("null")) {
-            para.put("refund_reason", refund_reason);
+        if (return_url != null && !return_url.equals("") && !return_url.equals("null")) {
+            para.put("return_url", return_url);
+        }
+        if (seller_id != null && !seller_id.equals("") && !seller_id.equals("null")) {
+            para.put("seller_id", seller_id);
         }
         if (service != null && !service.equals("") && !service.equals("null")) {
             para.put("service", service);
+        }
+        if (service_type != null && !service_type.equals("") && !service_type.equals("null")) {
+            para.put("service_type", service_type);
         }
         if (sign != null && !sign.equals("") && !sign.equals("null")) {
             para.put("sign", sign);
         }
         if (sign_type != null && !sign_type.equals("") && !sign_type.equals("null")) {
             para.put("sign_type", sign_type);
+        }
+        if (total_fee != null && !total_fee.equals("") && !total_fee.equals("null")) {
+            para.put("total_fee", total_fee);
         }
 
         return para;

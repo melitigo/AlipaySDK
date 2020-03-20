@@ -7,6 +7,7 @@ package com.alipay.global.api.tools;
 
 import com.alipay.global.api.base64.Base64Encryptor;
 import com.alipay.global.api.base64.DefaultBase64Encryptor;
+import com.alipay.global.api.exception.AlipayApiException;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
@@ -53,17 +54,21 @@ public class SignatureTool {
      * @return the boolean
      * @throws Exception the exception
      */
-    public static boolean verify(String rspContent, String signType, String charset, String signature, String alipayPublicKey) throws Exception {
-        if (signType.equals("MD5")) {
-            return signWithMD5(rspContent, charset, alipayPublicKey).equals(signature);
+    public static boolean verify(String rspContent, String signType, String charset, String signature, String alipayPublicKey) throws AlipayApiException {
+        try {
+            if (signType.equals("MD5")) {
+                return signWithMD5(rspContent, charset, alipayPublicKey).equals(signature);
+            }
+            if (signType.equals("RSA")) {
+                return verifySignatureWithSHA1RSA(rspContent, charset, signature, alipayPublicKey);
+            }
+            if (signType.equals("RSA2")) {
+                return verifySignatureWithSHA256RSA(rspContent, charset, signature, alipayPublicKey);
+            }
+        } catch (Exception e) {
+            throw new AlipayApiException("Signature verify failed");
         }
-        if (signType.equals("RSA")) {
-            return verifySignatureWithSHA1RSA(rspContent, charset, signature, alipayPublicKey);
-        }
-        if (signType.equals("RSA2")) {
-            return verifySignatureWithSHA256RSA(rspContent, charset, signature, alipayPublicKey);
-        }
-        throw new Exception("sign_type incorrect");
+        throw new AlipayApiException("sign_type incorrect");
     }
 
     /**
@@ -108,7 +113,7 @@ public class SignatureTool {
 
     }
 
-    private static String signWithMD5(String reqContent, String charset, String strPrivateKey) throws Exception {
+    private static String signWithMD5(String reqContent, String charset, String strPrivateKey) throws NoSuchAlgorithmException, UnsupportedEncodingException {
         String content = reqContent + strPrivateKey;
         MessageDigest md5 = MessageDigest.getInstance("MD5");
         md5.update(content.getBytes(charset));

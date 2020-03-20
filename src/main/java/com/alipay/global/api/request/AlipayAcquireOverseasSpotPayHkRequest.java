@@ -9,8 +9,8 @@ import java.util.Map;
 public class AlipayAcquireOverseasSpotPayHkRequest extends AlipayRequest {
 
     /**
-     * 字段描述：服务名
-     * Description: service name
+     * 字段描述：接口名称
+     * Description: Name of the interface
      * Example: alipay.acquire.overseas.spot.pay
      * alipay.acquire.overseas.spot.pay
      */
@@ -46,7 +46,7 @@ public class AlipayAcquireOverseasSpotPayHkRequest extends AlipayRequest {
 
     /**
      * 字段描述：字符集，推荐UTF-8
-     * Description: 
+     * Description: Charset of this request, it's recommended to use UTF-8
      * Example: UTF-8
      * UTF-8 GBK gbk utf-8
      */

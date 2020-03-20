@@ -9,8 +9,8 @@ import java.util.Map;
 public class AlipayAcquireCustomsRequest extends AlipayRequest {
 
     /**
-     * 字段描述：服务名
-     * Description: service name
+     * 字段描述：接口名称
+     * Description: Name of the interface
      * Example: alipay.acquire.customs
      * alipay.acquire.customs
      */
@@ -28,7 +28,7 @@ public class AlipayAcquireCustomsRequest extends AlipayRequest {
 
     /**
      * 字段描述：字符集，推荐UTF-8
-     * Description: 
+     * Description: Charset of this request, it's recommended to use UTF-8
      * Example: UTF-8
      * UTF-8 GBK gbk utf-8
      */
@@ -54,9 +54,9 @@ public class AlipayAcquireCustomsRequest extends AlipayRequest {
 
 
     /**
-     * 字段描述：
-     * Description: 
-     * Example: 
+     * 字段描述：商户端请求ID
+     * Description: ID of the request at merchant side
+     * Example: REQUEST_
      * 
      */
     private String out_request_no;

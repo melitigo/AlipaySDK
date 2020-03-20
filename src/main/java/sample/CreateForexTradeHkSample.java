@@ -25,7 +25,11 @@ public class CreateForexTradeHkSample {
         alipayRequest.setOutTradeNo("TRADE_" + System.nanoTime());
         alipayRequest.setCurrency("HKD");
         alipayRequest.setTotalFee("0.01");
+        alipayRequest.setOrderGmtCreate(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
+        alipayRequest.setOrderValidTime("3600");
         alipayRequest.setProductCode("NEW_WAP_OVERSEAS_SELLER");
+        alipayRequest.setQrPayMode("4");
+        alipayRequest.setQrcodeWidth("200");
         alipayRequest.setPaymentInst("ALIPAYHK");
         alipayRequest.setTradeInformation("{\"goods_info\":\"Macbook 12 inch M3 8G 256G SSD^1|Apple iPad Pro 11 inch^1\",\"business_type\":\"4\",\"total_quantity\":\"2\"}");
 

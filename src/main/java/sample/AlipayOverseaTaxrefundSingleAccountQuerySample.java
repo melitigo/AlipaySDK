@@ -22,6 +22,7 @@ public class AlipayOverseaTaxrefundSingleAccountQuerySample {
 
         
         alipayRequest.setTimestamp(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
+        alipayRequest.setOutOrderNo("ORDER_" + System.nanoTime());
 
         
         AlipayResponse execute = alipayClient.execute(alipayRequest);
