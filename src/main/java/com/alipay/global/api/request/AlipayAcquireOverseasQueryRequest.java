@@ -54,7 +54,7 @@ public class AlipayAcquireOverseasQueryRequest extends AlipayRequest {
 
 
     /**
-     * 字段描述：外部交易号
+     * 字段描述：商户端订单ID
      * Description: Merchant transaction number
      * Example: TRADE_#auto#
      * 
