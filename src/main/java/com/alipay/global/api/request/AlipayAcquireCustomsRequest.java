@@ -56,7 +56,7 @@ public class AlipayAcquireCustomsRequest extends AlipayRequest {
     /**
      * 字段描述：商户端请求ID
      * Description: ID of the request at merchant side
-     * Example: REQUEST_
+     * Example: REQUEST_#auto#
      * 
      */
     private String out_request_no;

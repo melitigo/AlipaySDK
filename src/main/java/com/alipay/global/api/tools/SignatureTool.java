@@ -136,7 +136,7 @@ public class SignatureTool {
      * @throws Exception
      */
     private static String signWithSHA1RSA(String reqContent, String charset, String strPrivateKey) throws Exception {
-        Signature privateSignature = Signature.getInstance(SHA256WITHRSA);
+        Signature privateSignature = Signature.getInstance(SHA1WITHRSA);
         privateSignature.initSign(getPrivateKeyFromBase64String(strPrivateKey));
         privateSignature.update(reqContent.getBytes(charset));
         byte[] s = privateSignature.sign();
@@ -153,7 +153,7 @@ public class SignatureTool {
      * @throws Exception
      */
     private static String signWithSHA256RSA(String reqContent, String charset, String strPrivateKey) throws Exception {
-        Signature privateSignature = Signature.getInstance(SHA1WITHRSA);
+        Signature privateSignature = Signature.getInstance(SHA256WITHRSA);
         privateSignature.initSign(getPrivateKeyFromBase64String(strPrivateKey));
         privateSignature.update(reqContent.getBytes(charset));
         byte[] s = privateSignature.sign();

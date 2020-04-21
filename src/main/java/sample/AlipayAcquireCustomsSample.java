@@ -21,7 +21,7 @@ public class AlipayAcquireCustomsSample {
         AlipayAcquireCustomsRequest alipayRequest = new AlipayAcquireCustomsRequest();
 
         
-        alipayRequest.setOutRequestNo("REQUEST_");
+        alipayRequest.setOutRequestNo("REQUEST_" + System.nanoTime());
 
         
         AlipayResponse execute = alipayClient.execute(alipayRequest);

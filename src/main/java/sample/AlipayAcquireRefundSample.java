@@ -23,7 +23,7 @@ public class AlipayAcquireRefundSample {
         
         alipayRequest.setOutTradeNo("TRADE_" + System.nanoTime());
         alipayRequest.setTransCurrency("USD");
-        alipayRequest.setOutRequestNo("REQUEST_");
+        alipayRequest.setOutRequestNo("REQUEST_" + System.nanoTime());
         alipayRequest.setRefundReason("买家主动要求退款");
 
         

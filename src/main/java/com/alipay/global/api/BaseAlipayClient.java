@@ -75,7 +75,7 @@ public abstract class BaseAlipayClient implements AlipayClient {
         if (!request.getService().equals("mobile.securitypay.pay")) {
             throw new AlipayApiException("service incorrect", "only service mobile.securitypay.pay is allowed to call this function");
         }
-        return request.parameters().entrySet().stream().map(a1 -> {
+        return request.parameters().entrySet().stream().sorted(Comparator.comparing(Map.Entry::getKey)).map(a1 -> {
             try {
                 return a1.getKey().equals("sign") ? String.format("%s=\"%s\"", a1.getKey(), URLEncoder.encode(a1.getValue(), inputCharset)) : String.format("%s=\"%s\"", a1.getKey(), a1.getValue());
             } catch (UnsupportedEncodingException e) {
@@ -164,6 +164,7 @@ public abstract class BaseAlipayClient implements AlipayClient {
             }).sorted(Map.Entry.comparingByKey()).map(a1 -> {
                 return parameters.get("service").equals("mobile.securitypay.pay") ? String.format("%s=\"%s\"", a1.getKey(), a1.getValue()) : String.format("%s=%s", a1.getKey(), a1.getValue());
             }).collect(Collectors.joining("&"));
+            System.out.println(preSignString);
             signatureValue = SignatureTool.sign(preSignString, signType, inputCharset, merchantPrivateKey);
         } catch (Exception e) {
             throw new AlipayApiException(e);
